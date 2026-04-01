@@ -5,7 +5,7 @@ require_once 'config.php';
 $success = isset($_GET['success']);
 $error   = '';
 
-// Fungsi: ambil semua kategori
+// ngaambil semua kategori
 function getKategori() {
     global $conn;
     $result = $conn->query("SELECT * FROM kategori ORDER BY ket_kategori ASC");
@@ -16,7 +16,7 @@ function getKategori() {
     return $list;
 }
 
-// Fungsi: validasi siswa
+// ngevalidasi siswa
 function validateSiswa($nisn, $kelas) {
     global $conn;
     $nisn  = mysqli_real_escape_string($conn, (string)$nisn);
@@ -28,7 +28,7 @@ function validateSiswa($nisn, $kelas) {
     return null;
 }
 
-// Proses submit
+// memroses submit
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nisn        = sanitize($conn, $_POST['nisn'] ?? '');
     $kelas       = sanitize($conn, $_POST['kelas'] ?? '');
@@ -43,12 +43,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!$siswa) {
             $error = 'NISN atau kelas tidak ditemukan!';
         } else {
-            // Simpan session
+            // simpan session
             $_SESSION['nisn']  = $siswa['nisn'];
             $_SESSION['nama']  = $siswa['nama'];
             $_SESSION['kelas'] = $siswa['kelas'];
 
-            // Insert aspirasi
+            // input aspirasi
             $sql = "INSERT INTO input_aspirasi (nisn, id_kategori, lokasi, ket)
                     VALUES ('$nisn', $id_kategori, '$lokasi', '$ket')";
             if ($conn->query($sql)) {

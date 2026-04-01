@@ -15,7 +15,7 @@ if (!$id) {
 $success = '';
 $error   = '';
 
-// ngambil detail aspirasi berdasarkan ID
+// ngambil detail data aspirasi berdasarkan ID
 function getDetailAspirasi($conn, $id_aspirasi) {
     $sql = "SELECT a.id_aspirasi, a.status, a.feedback,
                    ia.id_pelaporan, ia.lokasi, ia.ket, ia.nisn,
