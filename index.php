@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['nama']  = $siswa['nama'];
             $_SESSION['kelas'] = $siswa['kelas'];
 
-            // input aspirasi
+            // nginput aspirasi
             $sql = "INSERT INTO input_aspirasi (nisn, id_kategori, lokasi, ket)
                     VALUES ('$nisn', $id_kategori, '$lokasi', '$ket')";
             if ($conn->query($sql)) {
