@@ -1,8 +1,5 @@
 <?php
-/**
- * index.php
- * Halaman utama - Form NISN + Aspirasi sekaligus
- */
+
 require_once 'config.php';
 
 $success = isset($_GET['success']);
